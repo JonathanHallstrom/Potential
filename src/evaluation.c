@@ -405,6 +405,8 @@ int get_game_phase_score(const board* position) {
     __m512i popcounts = _mm512_popcnt_epi64(pieces);
 
     return _mm512_reduce_add_epi64(_mm512_mullo_epi64(popcounts, material_values));
+#else
+#error "only testing on avx512 for now"
 #endif
 
     // white & black game phase scores
