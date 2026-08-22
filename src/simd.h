@@ -4,6 +4,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#if !defined(__aarch64__)
+#error "testing on aarch"
+#endif
+
 #define idcs(x) (0 + x), (2 + x), (4 + x), (6 + x)
 #if defined(__AVX512F__)
 #define VEC_BYTES 64
